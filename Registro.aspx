@@ -33,7 +33,7 @@
                 ControlToValidate="ddlCategoria"
                 InitialValue=""
                 ErrorMessage="Debe seleccionar una categoría."></asp:RequiredFieldValidator>
-            <br /><br />
+            <a href="Categorias.aspx">Categorias.aspx</a><br /><br />
 
             Precio ($):
             <asp:TextBox ID="txtPrecio" runat="server"></asp:TextBox>

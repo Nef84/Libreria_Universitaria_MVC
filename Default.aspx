@@ -27,6 +27,16 @@
                 Text="Consulta / Listado de productos"></asp:HyperLink>
             <br /><br />
 
+            <asp:HyperLink ID="hlCategorias" runat="server"
+    NavigateUrl="~/Categorias.aspx"
+    Text="Gestionar Categorías"></asp:HyperLink>
+<br /><br />
+
+<asp:HyperLink ID="hlLibros" runat="server"
+    NavigateUrl="~/Libros.aspx"
+    Text="Gestionar Libros"></asp:HyperLink>
+<br /><br />
+
             <asp:Label ID="lblGrupo" runat="server"
                 Text="Grupo 4 - Programación 2"></asp:Label>
 
