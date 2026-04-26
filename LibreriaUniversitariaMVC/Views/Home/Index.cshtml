@@ -1,0 +1,18 @@
+@{
+    ViewBag.Title = "Inicio";
+}
+
+<h2>Inicio</h2>
+
+<div class="pagina-panel">
+    <h4>Sistema de Inventario para Libreria Universitaria</h4>
+    <hr />
+    <p>Bienvenido: <strong>@Session["UsuarioNombre"]</strong></p>
+    <p>Rol: <strong>@Session["UsuarioRol"]</strong></p>
+    <p>Desde este menu puedes trabajar con las dos entidades principales del sistema.</p>
+
+    <ul>
+        <li>@Html.ActionLink("Ir al CRUD de Categorias", "Index", "Categorias")</li>
+        <li>@Html.ActionLink("Ir al CRUD de Libros", "Index", "Libros")</li>
+    </ul>
+</div>

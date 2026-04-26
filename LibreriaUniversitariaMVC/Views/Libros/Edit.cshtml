@@ -1,0 +1,52 @@
+@model LibreriaUniversitariaMVC.Models.Libro
+@{
+    ViewBag.Title = "Editar libro";
+}
+
+<div class="pagina-panel formulario-panel">
+    <h2 class="mb-4">Editar libro</h2>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+        @Html.HiddenFor(m => m.LibroId)
+        @Html.ValidationSummary(true, "", new { @class = "text-danger mb-3" })
+
+        <div class="mb-3">
+            @Html.LabelFor(m => m.Titulo, new { @class = "form-label" })
+            @Html.EditorFor(m => m.Titulo, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(m => m.Titulo, "", new { @class = "text-danger" })
+        </div>
+
+        <div class="mb-3">
+            @Html.LabelFor(m => m.Autor, new { @class = "form-label" })
+            @Html.EditorFor(m => m.Autor, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(m => m.Autor, "", new { @class = "text-danger" })
+        </div>
+
+        <div class="mb-3">
+            @Html.LabelFor(m => m.Precio, new { @class = "form-label" })
+            @Html.TextBoxFor(m => m.Precio, new { @class = "form-control", type = "number", step = "0.01" })
+            @Html.ValidationMessageFor(m => m.Precio, "", new { @class = "text-danger" })
+        </div>
+
+        <div class="mb-3">
+            @Html.LabelFor(m => m.Stock, new { @class = "form-label" })
+            @Html.TextBoxFor(m => m.Stock, new { @class = "form-control", type = "number" })
+            @Html.ValidationMessageFor(m => m.Stock, "", new { @class = "text-danger" })
+        </div>
+
+        <div class="mb-3">
+            @Html.LabelFor(m => m.CategoriaId, new { @class = "form-label" })
+            @Html.DropDownListFor(m => m.CategoriaId, ViewBag.Categorias as SelectList, "-- Seleccione una categoria --", new { @class = "form-select" })
+            @Html.ValidationMessageFor(m => m.CategoriaId, "", new { @class = "text-danger" })
+        </div>
+
+        <button type="submit" class="btn btn-primary">Guardar cambios</button>
+        @Html.ActionLink("Cancelar", "Index", null, new { @class = "btn btn-secondary ms-2" })
+    }
+</div>
+
+@section scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

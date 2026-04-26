@@ -1,0 +1,45 @@
+@model IEnumerable<LibreriaUniversitariaMVC.Models.Categoria>
+@using System.Linq
+@{
+    ViewBag.Title = "Categorias";
+}
+
+<div class="pagina-panel">
+    <div class="d-flex justify-content-between align-items-center mb-3">
+        <h2 class="mb-0">Categorias</h2>
+        @Html.ActionLink("Nueva categoria", "Create", null, new { @class = "btn btn-primary" })
+    </div>
+
+    @if (!Model.Any())
+    {
+        <div class="alert alert-info">No hay categorias registradas.</div>
+    }
+    else
+    {
+        <div class="table-responsive">
+            <table class="table table-bordered table-hover align-middle">
+                <thead class="table-light">
+                    <tr>
+                        <th>@Html.DisplayNameFor(model => model.Nombre)</th>
+                        <th>@Html.DisplayNameFor(model => model.Descripcion)</th>
+                        <th style="width: 240px;">Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>@Html.DisplayFor(modelItem => item.Nombre)</td>
+                            <td>@Html.DisplayFor(modelItem => item.Descripcion)</td>
+                            <td>
+                                @Html.ActionLink("Detalles", "Details", new { id = item.CategoriaId }, new { @class = "btn btn-sm btn-outline-secondary me-1" })
+                                @Html.ActionLink("Editar", "Edit", new { id = item.CategoriaId }, new { @class = "btn btn-sm btn-outline-primary me-1" })
+                                @Html.ActionLink("Eliminar", "Delete", new { id = item.CategoriaId }, new { @class = "btn btn-sm btn-outline-danger" })
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    }
+</div>

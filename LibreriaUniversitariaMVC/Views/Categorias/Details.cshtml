@@ -1,0 +1,21 @@
+@model LibreriaUniversitariaMVC.Models.Categoria
+@{
+    ViewBag.Title = "Detalle de categoria";
+}
+
+<div class="pagina-panel">
+    <h2 class="mb-4">Detalle de categoria</h2>
+
+    <dl class="row">
+        <dt class="col-sm-3">@Html.DisplayNameFor(model => model.Nombre)</dt>
+        <dd class="col-sm-9">@Html.DisplayFor(model => model.Nombre)</dd>
+
+        <dt class="col-sm-3">@Html.DisplayNameFor(model => model.Descripcion)</dt>
+        <dd class="col-sm-9">@Html.DisplayFor(model => model.Descripcion)</dd>
+    </dl>
+
+    <div class="mt-3">
+        @Html.ActionLink("Editar", "Edit", new { id = Model.CategoriaId }, new { @class = "btn btn-primary me-2" })
+        @Html.ActionLink("Volver", "Index", null, new { @class = "btn btn-secondary" })
+    </div>
+</div>

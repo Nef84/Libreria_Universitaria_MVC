@@ -1,0 +1,46 @@
+body {
+    background-color: #f4f6f8;
+    color: #1f2a37;
+}
+
+.login-body {
+    background-color: #f4f6f8;
+    min-height: 100vh;
+}
+
+.barra-superior {
+    background: #1f4e79;
+}
+
+.contenido-principal {
+    min-height: calc(100vh - 140px);
+    padding-top: 18px;
+    padding-bottom: 24px;
+}
+
+.pagina-panel {
+    background: #ffffff;
+    border-radius: 8px;
+    padding: 24px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.formulario-panel {
+    max-width: 760px;
+}
+
+.pie-pagina {
+    background: #1f2a37;
+    color: #ffffff;
+    padding: 16px 0;
+    text-align: center;
+}
+
+.texto-usuario {
+    color: #d9e6f2;
+}
+
+.table td,
+.table th {
+    vertical-align: middle;
+}

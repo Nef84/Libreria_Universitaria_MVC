@@ -1,0 +1,51 @@
+@model IEnumerable<LibreriaUniversitariaMVC.Models.Libro>
+@using System.Linq
+@{
+    ViewBag.Title = "Libros";
+}
+
+<div class="pagina-panel">
+    <div class="d-flex justify-content-between align-items-center mb-3">
+        <h2 class="mb-0">Libros</h2>
+        @Html.ActionLink("Nuevo libro", "Create", null, new { @class = "btn btn-primary" })
+    </div>
+
+    @if (!Model.Any())
+    {
+        <div class="alert alert-info">No hay libros registrados.</div>
+    }
+    else
+    {
+        <div class="table-responsive">
+            <table class="table table-bordered table-hover align-middle">
+                <thead class="table-light">
+                    <tr>
+                        <th>@Html.DisplayNameFor(model => model.Titulo)</th>
+                        <th>@Html.DisplayNameFor(model => model.Autor)</th>
+                        <th>@Html.DisplayNameFor(model => model.Precio)</th>
+                        <th>@Html.DisplayNameFor(model => model.Stock)</th>
+                        <th>@Html.DisplayNameFor(model => model.NombreCategoria)</th>
+                        <th style="width: 240px;">Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>@Html.DisplayFor(modelItem => item.Titulo)</td>
+                            <td>@Html.DisplayFor(modelItem => item.Autor)</td>
+                            <td>@Html.DisplayFor(modelItem => item.Precio)</td>
+                            <td>@Html.DisplayFor(modelItem => item.Stock)</td>
+                            <td>@Html.DisplayFor(modelItem => item.NombreCategoria)</td>
+                            <td>
+                                @Html.ActionLink("Detalles", "Details", new { id = item.LibroId }, new { @class = "btn btn-sm btn-outline-secondary me-1" })
+                                @Html.ActionLink("Editar", "Edit", new { id = item.LibroId }, new { @class = "btn btn-sm btn-outline-primary me-1" })
+                                @Html.ActionLink("Eliminar", "Delete", new { id = item.LibroId }, new { @class = "btn btn-sm btn-outline-danger" })
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    }
+</div>

@@ -1,0 +1,33 @@
+@model LibreriaUniversitariaMVC.Models.Libro
+@{
+    ViewBag.Title = "Eliminar libro";
+}
+
+<div class="pagina-panel">
+    <h2 class="mb-4">Eliminar libro</h2>
+    <p>¿Seguro que deseas eliminar este libro?</p>
+
+    <dl class="row">
+        <dt class="col-sm-3">@Html.DisplayNameFor(model => model.Titulo)</dt>
+        <dd class="col-sm-9">@Html.DisplayFor(model => model.Titulo)</dd>
+
+        <dt class="col-sm-3">@Html.DisplayNameFor(model => model.Autor)</dt>
+        <dd class="col-sm-9">@Html.DisplayFor(model => model.Autor)</dd>
+
+        <dt class="col-sm-3">@Html.DisplayNameFor(model => model.Precio)</dt>
+        <dd class="col-sm-9">@Html.DisplayFor(model => model.Precio)</dd>
+
+        <dt class="col-sm-3">@Html.DisplayNameFor(model => model.Stock)</dt>
+        <dd class="col-sm-9">@Html.DisplayFor(model => model.Stock)</dd>
+
+        <dt class="col-sm-3">@Html.DisplayNameFor(model => model.NombreCategoria)</dt>
+        <dd class="col-sm-9">@Html.DisplayFor(model => model.NombreCategoria)</dd>
+    </dl>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+        <button type="submit" class="btn btn-danger">Eliminar</button>
+        @Html.ActionLink("Cancelar", "Index", null, new { @class = "btn btn-secondary ms-2" })
+    }
+</div>

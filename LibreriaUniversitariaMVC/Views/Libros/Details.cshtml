@@ -1,0 +1,30 @@
+@model LibreriaUniversitariaMVC.Models.Libro
+@{
+    ViewBag.Title = "Detalle de libro";
+}
+
+<div class="pagina-panel">
+    <h2 class="mb-4">Detalle de libro</h2>
+
+    <dl class="row">
+        <dt class="col-sm-3">@Html.DisplayNameFor(model => model.Titulo)</dt>
+        <dd class="col-sm-9">@Html.DisplayFor(model => model.Titulo)</dd>
+
+        <dt class="col-sm-3">@Html.DisplayNameFor(model => model.Autor)</dt>
+        <dd class="col-sm-9">@Html.DisplayFor(model => model.Autor)</dd>
+
+        <dt class="col-sm-3">@Html.DisplayNameFor(model => model.Precio)</dt>
+        <dd class="col-sm-9">@Html.DisplayFor(model => model.Precio)</dd>
+
+        <dt class="col-sm-3">@Html.DisplayNameFor(model => model.Stock)</dt>
+        <dd class="col-sm-9">@Html.DisplayFor(model => model.Stock)</dd>
+
+        <dt class="col-sm-3">@Html.DisplayNameFor(model => model.NombreCategoria)</dt>
+        <dd class="col-sm-9">@Html.DisplayFor(model => model.NombreCategoria)</dd>
+    </dl>
+
+    <div class="mt-3">
+        @Html.ActionLink("Editar", "Edit", new { id = Model.LibroId }, new { @class = "btn btn-primary me-2" })
+        @Html.ActionLink("Volver", "Index", null, new { @class = "btn btn-secondary" })
+    </div>
+</div>

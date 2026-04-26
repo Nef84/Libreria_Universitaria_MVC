@@ -55,3 +55,38 @@ INSERT INTO Libros (Titulo, Autor, Precio, Stock, CategoriaID) VALUES
 ('Álgebra Lineal',          'Gilbert Strang',    390.00,  5, 2),
 ('Cien años de soledad',    'Gabriel García M.', 180.00, 20, 3);
 GO
+
+------------------------------
+-- Para crear usuarios y sus roles
+------------------------------
+CREATE TABLE Roles (
+    RolID   INT IDENTITY(1,1) NOT NULL,
+    Nombre  NVARCHAR(50) NOT NULL,
+    CONSTRAINT PK_Roles PRIMARY KEY (RolID)
+);
+GO
+
+CREATE TABLE Usuarios (
+    UsuarioID     INT IDENTITY(1,1) NOT NULL,
+    NombreUsuario NVARCHAR(50) NOT NULL,
+    Contrasena    NVARCHAR(100) NOT NULL,
+    Nombre        NVARCHAR(100) NOT NULL,
+    RolID         INT NOT NULL,
+    Activo        BIT NOT NULL DEFAULT 1,
+    CONSTRAINT PK_Usuarios PRIMARY KEY (UsuarioID),
+    CONSTRAINT FK_Usuarios_Roles FOREIGN KEY (RolID)
+        REFERENCES Roles(RolID)
+);
+GO
+
+INSERT INTO Roles (Nombre) VALUES
+('Administrador'),
+('Jefe de Area'),
+('Agente de Servicios');
+GO
+
+INSERT INTO Usuarios (NombreUsuario, Contrasena, Nombre, RolID, Activo) VALUES
+('admin', '1234', 'Administrador General', 1, 1),
+('jefe', '1234', 'Jefe de Area', 2, 1),
+('agente', '1234', 'Agente de Servicios', 3, 1);
+GO
