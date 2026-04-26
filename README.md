@@ -13,7 +13,7 @@ Proyecto academico para Programacion 2, Unidad 3, desarrollado en **ASP.NET MVC 
 
 ## Como probarlo
 
-1. Abre `BaseDatos.sql` en **SQL Server Management Studio**
+1. Abrir `BaseDatos.sql` en **SQL Server Management Studio**
 2. Ejecuta el script completo con **F5**
 3. Abre `Libreria_Universitaria.sln` en **Visual Studio**
 4. Deja `LibreriaUniversitariaMVC` como proyecto de inicio
