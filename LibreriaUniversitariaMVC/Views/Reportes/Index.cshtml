@@ -1,0 +1,161 @@
+@model LibreriaUniversitariaMVC.Models.ReporteInventario
+@{
+    ViewBag.Title = "Reportes";
+}
+
+<div class="pagina-panel mb-4">
+    <div class="d-flex justify-content-between align-items-center mb-3">
+        <h2 class="mb-0">Reportes</h2>
+    </div>
+
+    <p class="text-muted mb-4">
+        Esta pantalla muestra consultas y listados finales del inventario usando LINQ sobre los datos cargados del sistema.
+    </p>
+
+    @using (Html.BeginForm("Index", "Reportes", FormMethod.Get))
+    {
+        <div class="row g-3 align-items-end">
+            <div class="col-md-5">
+                @Html.LabelFor(m => m.TextoBusqueda, "Buscar por titulo o autor", new { @class = "form-label" })
+                @Html.TextBoxFor(m => m.TextoBusqueda, new { @class = "form-control", placeholder = "Ejemplo: C# o Stewart" })
+            </div>
+            <div class="col-md-4">
+                @Html.LabelFor(m => m.CategoriaId, "Categoria", new { @class = "form-label" })
+                @Html.DropDownListFor(m => m.CategoriaId, ViewBag.Categorias as SelectList, "Todas las categorias", new { @class = "form-select" })
+            </div>
+            <div class="col-md-3">
+                <button type="submit" class="btn btn-primary w-100">Filtrar</button>
+            </div>
+        </div>
+    }
+
+    <div class="row mt-4">
+        <div class="col-md-4 mb-3">
+            <div class="resumen-tarjeta">
+                <h5>Total de libros</h5>
+                <p>@Model.TotalLibros</p>
+            </div>
+        </div>
+        <div class="col-md-4 mb-3">
+            <div class="resumen-tarjeta">
+                <h5>Stock total</h5>
+                <p>@Model.StockTotal</p>
+            </div>
+        </div>
+        <div class="col-md-4 mb-3">
+            <div class="resumen-tarjeta">
+                <h5>Valor del inventario</h5>
+                <p>@Model.ValorInventarioTotal.ToString("C")</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="pagina-panel mb-4">
+    <h4 class="mb-3">Listado filtrado</h4>
+
+    @if (Model.LibrosFiltrados.Count == 0)
+    {
+        <div class="alert alert-info">No se encontraron libros con los filtros seleccionados.</div>
+    }
+    else
+    {
+        <div class="table-responsive">
+            <table class="table table-bordered table-hover align-middle">
+                <thead class="table-light">
+                    <tr>
+                        <th>Titulo</th>
+                        <th>Autor</th>
+                        <th>Categoria</th>
+                        <th>Precio</th>
+                        <th>Stock</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model.LibrosFiltrados)
+                    {
+                        <tr>
+                            <td>@item.Titulo</td>
+                            <td>@item.Autor</td>
+                            <td>@item.NombreCategoria</td>
+                            <td>@item.Precio.ToString("C")</td>
+                            <td>@item.Stock</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    }
+</div>
+
+<div class="row">
+    <div class="col-lg-6 mb-4">
+        <div class="pagina-panel h-100">
+            <h4 class="mb-3">Libros con bajo stock</h4>
+
+            @if (Model.LibrosBajoStock.Count == 0)
+            {
+                <div class="alert alert-success">No hay libros con bajo stock.</div>
+            }
+            else
+            {
+                <div class="table-responsive">
+                    <table class="table table-bordered table-hover align-middle">
+                        <thead class="table-light">
+                            <tr>
+                                <th>Titulo</th>
+                                <th>Categoria</th>
+                                <th>Stock</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model.LibrosBajoStock)
+                            {
+                                <tr>
+                                    <td>@item.Titulo</td>
+                                    <td>@item.NombreCategoria</td>
+                                    <td>@item.Stock</td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            }
+        </div>
+    </div>
+
+    <div class="col-lg-6 mb-4">
+        <div class="pagina-panel h-100">
+            <h4 class="mb-3">Resumen por categoria</h4>
+
+            @if (Model.ResumenCategorias.Count == 0)
+            {
+                <div class="alert alert-info">No hay datos para mostrar.</div>
+            }
+            else
+            {
+                <div class="table-responsive">
+                    <table class="table table-bordered table-hover align-middle">
+                        <thead class="table-light">
+                            <tr>
+                                <th>Categoria</th>
+                                <th>Cantidad de libros</th>
+                                <th>Stock total</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model.ResumenCategorias)
+                            {
+                                <tr>
+                                    <td>@item.Categoria</td>
+                                    <td>@item.CantidadLibros</td>
+                                    <td>@item.StockTotal</td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            }
+        </div>
+    </div>
+</div>

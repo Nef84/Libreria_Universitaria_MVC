@@ -9,10 +9,16 @@
     <hr />
     <p>Bienvenido: <strong>@Session["UsuarioNombre"]</strong></p>
     <p>Rol: <strong>@Session["UsuarioRol"]</strong></p>
-    <p>Desde este menu puedes trabajar con las dos entidades principales del sistema.</p>
+    <p>Desde este menu puedes trabajar con los modulos principales del sistema.</p>
 
     <ul>
         <li>@Html.ActionLink("Ir al CRUD de Categorias", "Index", "Categorias")</li>
         <li>@Html.ActionLink("Ir al CRUD de Libros", "Index", "Libros")</li>
+        <li>@Html.ActionLink("Ir al modulo de Reportes", "Index", "Reportes")</li>
     </ul>
+
+    <p class="mt-3 mb-0">
+        El sistema cuenta con seguridad minima por login, mantenimiento de categorias y libros,
+        y una pantalla de reportes con filtros y consultas LINQ para la entrega final.
+    </p>
 </div>

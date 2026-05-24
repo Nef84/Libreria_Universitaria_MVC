@@ -44,3 +44,22 @@ body {
 .table th {
     vertical-align: middle;
 }
+
+.resumen-tarjeta {
+    background: #eef4fb;
+    border: 1px solid #d6e2f0;
+    border-radius: 8px;
+    padding: 18px;
+    height: 100%;
+}
+
+.resumen-tarjeta h5 {
+    margin-bottom: 10px;
+    color: #1f4e79;
+}
+
+.resumen-tarjeta p {
+    margin: 0;
+    font-size: 1.6rem;
+    font-weight: 600;
+}

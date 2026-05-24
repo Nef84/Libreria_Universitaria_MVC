@@ -103,6 +103,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LibrosController.cs" />
     <Compile Include="Controllers\AccesoController.cs" />
+    <Compile Include="Controllers\ReportesController.cs" />
     <Compile Include="Data\CategoriaDatos.cs" />
     <Compile Include="Data\LibroDatos.cs" />
     <Compile Include="Data\UsuarioDatos.cs" />
@@ -112,6 +113,8 @@
     <Compile Include="Models\Categoria.cs" />
     <Compile Include="Models\Libro.cs" />
     <Compile Include="Models\LoginUsuario.cs" />
+    <Compile Include="Models\ReporteInventario.cs" />
+    <Compile Include="Models\ResumenCategoria.cs" />
     <Compile Include="Models\UsuarioSesion.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -140,6 +143,7 @@
     <Content Include="Views\Libros\Details.cshtml" />
     <Content Include="Views\Libros\Edit.cshtml" />
     <Content Include="Views\Libros\Index.cshtml" />
+    <Content Include="Views\Reportes\Index.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Web.config" />
